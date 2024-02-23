@@ -1,0 +1,38 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-serverlesswebapp-dev-200639-authRole",
+      "UnauthRoleArn": "arn:aws:iam::905418484820:role/amplify-serverlesswebapp-dev-200639-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::905418484820:role/amplify-serverlesswebapp-dev-200639-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-serverlesswebapp-dev-200639-deployment",
+      "UnauthRoleName": "amplify-serverlesswebapp-dev-200639-unauthRole",
+      "StackName": "amplify-serverlesswebapp-dev-200639",
+      "StackId": "arn:aws:cloudformation:eu-central-1:905418484820:stack/amplify-serverlesswebapp-dev-200639/ad1b64f0-d27e-11ee-bb9c-0aa6667d1043",
+      "AmplifyAppId": "d3a3skf8e13d2c"
+    },
+    "categories": {
+      "auth": {
+        "serverlesswebapp36f57dcf": {}
+      }
+    }
+  },
+  "default": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-serverlesswebapp-default-201722-authRole",
+      "UnauthRoleArn": "arn:aws:iam::905418484820:role/amplify-serverlesswebapp-default-201722-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::905418484820:role/amplify-serverlesswebapp-default-201722-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-serverlesswebapp-default-201722-deployment",
+      "UnauthRoleName": "amplify-serverlesswebapp-default-201722-unauthRole",
+      "StackName": "amplify-serverlesswebapp-default-201722",
+      "StackId": "arn:aws:cloudformation:eu-central-1:905418484820:stack/amplify-serverlesswebapp-default-201722/2c9b82e0-d280-11ee-8237-02c10acc450f",
+      "AmplifyAppId": "d3a3skf8e13d2c"
+    },
+    "categories": {
+      "auth": {
+        "serverlesswebapp36f57dcf": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+on: [push]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Publish to Cloudflare Pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CF_PAGES_API_TOKEN }}
+          accountId: dd062b3fa5b21455e7c9f8ab5df29bb2
+          projectName: serverless-webapp
+          directory: build
+          gitHubToken: ${{ secrets.CF_API_TK }}
+          workingDirectory: build
