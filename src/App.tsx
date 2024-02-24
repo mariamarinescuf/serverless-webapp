@@ -2,8 +2,12 @@ import React from "react";
 import { Amplify } from "aws-amplify";
 import { Authenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
+import { 
+  QueryClient,
+} from '@tanstack/react-query'
 
 import "./App.css";
+import { Outlet, createRootRouteWithContext, createRoute, createRouter } from "@tanstack/react-router";
 
 Amplify.configure({
   aws_project_region: "eu-central-1",
@@ -38,15 +42,58 @@ Amplify.configure({
   aws_cognito_verification_mechanisms: ["EMAIL"],
 } as any);
 
-export default function App() {
+
+const rootRoute = createRootRouteWithContext<{
+  queryClient: QueryClient
+}>()({
+  component: RootComponent,
+})
+
+function RootComponent() {
   return (
-    <Authenticator socialProviders={["amazon", "apple", "facebook", "google"]}>
+  <div id="app">
+   <Authenticator>
       {({ signOut, user }) => (
         <main>
-          <h1>Hello Helloo {user?.signInDetails?.loginId}</h1>
+          <h1>Hello {user?.signInDetails?.loginId}</h1>
           <button onClick={signOut}>Sign out</button>
+          <Outlet/>
         </main>
       )}
     </Authenticator>
-  );
+    </div>
+  )
 }
+
+
+
+const indexRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/',
+  component: function Index() {
+    return (
+      <div className="p-2">
+        <h3>Welcome Home!</h3>
+      </div>
+    )
+  },
+})
+
+const routeTree = rootRoute.addChildren([
+  indexRoute,
+])
+
+const queryClient = new QueryClient()
+
+// Set up a Router instance
+export const router = createRouter({
+  routeTree,
+  defaultPreload: 'intent',
+  // Since we're using React Query, we don't want loader calls to ever be stale
+  // This will ensure that the loader is always called when the route is preloaded or visited
+  defaultPreloadStaleTime: 0,
+  context: {
+    queryClient,
+  },
+})
+
