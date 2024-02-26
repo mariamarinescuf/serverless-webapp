@@ -51,19 +51,19 @@ const rootRoute = createRootRouteWithContext<{
 
 function RootComponent() {
   return (
-  <div id="app">
    <Authenticator>
       {({ signOut, user }) => (
-        <main>
+        <main id="app">
           <h1>Hello {user?.signInDetails?.loginId}</h1>
           <button onClick={signOut}>Sign out</button>
           <Outlet/>
         </main>
       )}
     </Authenticator>
-    </div>
   )
 }
+
+
 
 
 
@@ -85,7 +85,6 @@ const routeTree = rootRoute.addChildren([
 
 const queryClient = new QueryClient()
 
-// Set up a Router instance
 export const router = createRouter({
   routeTree,
   defaultPreload: 'intent',
