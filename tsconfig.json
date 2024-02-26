@@ -19,5 +19,5 @@
       "baseUrl": "./src",
       "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "functions"]
+  "include": ["src", "functions", "src/.routes"]
 }

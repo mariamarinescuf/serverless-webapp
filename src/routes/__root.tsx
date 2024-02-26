@@ -2,10 +2,8 @@ import React from "react";
 import { Authenticator } from "@aws-amplify/ui-react";
 import { QueryClient } from "@tanstack/react-query";
 import {
-  Link,
   Outlet,
   createRootRoute,
-  createRootRouteWithContext,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 

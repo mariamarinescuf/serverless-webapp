@@ -1,5 +1,4 @@
 import React from "react";
-import { useSessionStorage } from "hooks";
 
 interface RouterConfigWidgetProps {
     setLoaderDelay: React.Dispatch<React.SetStateAction<number>>,

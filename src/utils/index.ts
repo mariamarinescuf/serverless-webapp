@@ -1,1 +1,1 @@
-export {  default as getHoverTransition } from './getHoverTransition';
+export * from "./transition";
