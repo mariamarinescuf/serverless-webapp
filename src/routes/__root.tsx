@@ -1,27 +1,34 @@
-import React from 'react'
-import { Authenticator } from "@aws-amplify/ui-react"
-import { QueryClient } from "@tanstack/react-query"
-import { createRootRouteWithContext } from "@tanstack/react-router"
-import { Outlet } from "react-router-dom"
+import React from "react";
+import { Authenticator } from "@aws-amplify/ui-react";
+import { QueryClient } from "@tanstack/react-query";
+import { Outlet, createRootRoute } from "@tanstack/react-router";
+import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import { AppNavbar } from "components";
 
-export const Route = createRootRouteWithContext<{
-    queryClient: QueryClient
-  }>()({
-    component: RootComponent,
-  })
-  
-  function RootComponent() {
-    return (
+export const Route = createRootRoute<{
+  queryClient: QueryClient;
+}>({
+  component: RootComponent,
+  notFoundComponent: () => {
+    return <p>Not Found (on root route)</p>;
+  },
+});
+
+function RootComponent() {
+  return (
     <>
-     <Authenticator socialProviders={["google"]}>
+      <Authenticator socialProviders={["google"]}>
         {({ signOut, user }) => (
-          <main id="app">
-            <h1>Hello Helloo {user?.signInDetails?.loginId}</h1>
-            <button onClick={signOut}>Sign out</button>
-            <Outlet/>
+          <main>
+            <AppNavbar
+              signOut={signOut}
+              userName={user?.signInDetails?.loginId}
+            />
+            <Outlet />
           </main>
         )}
       </Authenticator>
-      </>
-    )
-  }
+      <TanStackRouterDevtools position="bottom-right" />
+    </>
+  );
+}
