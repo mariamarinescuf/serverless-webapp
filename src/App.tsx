@@ -5,9 +5,9 @@ import { QueryClient } from "@tanstack/react-query";
 
 import "./App.css";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
-import { RouterConfigWidget } from "./components";
 import { routeTree } from "routeTree.gen";
 import { useSessionStorage } from "hooks";
+import { RouterConfigWidget } from "./components";
 
 Amplify.configure({
   aws_project_region: "eu-central-1",
@@ -55,13 +55,13 @@ export const router = createRouter({
   },
 });
 
-export const App = () => {
+export function App() {
   // This stuff is just to tweak our dev setup in real-time
   const [loaderDelay, setLoaderDelay] = useSessionStorage("loaderDelay", 500);
   const [pendingMs, setPendingMs] = useSessionStorage("pendingMs", 1000);
   const [pendingMinMs, setPendingMinMs] = useSessionStorage(
     "pendingMinMs",
-    500
+    500,
   );
 
   return (
@@ -85,4 +85,4 @@ export const App = () => {
       />
     </>
   );
-};
+}

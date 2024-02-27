@@ -1,3 +1,3 @@
-export * from './inputs';
-export * from './widgets/RouterConfigWidget'
-export * from './AppNavbar'
+export * from "./inputs";
+export * from "./widgets/RouterConfigWidget";
+export * from "./AppNavbar";

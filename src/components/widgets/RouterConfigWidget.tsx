@@ -1,22 +1,29 @@
 import React from "react";
 
 interface RouterConfigWidgetProps {
-    setLoaderDelay: React.Dispatch<React.SetStateAction<number>>,
-    loaderDelay: number, 
-    setPendingMs: React.Dispatch<React.SetStateAction<number>>,  
-    pendingMs: number, 
-    setPendingMinMs: React.Dispatch<React.SetStateAction<number>>, 
-    pendingMinMs: number
+  setLoaderDelay: React.Dispatch<React.SetStateAction<number>>;
+  loaderDelay: number;
+  setPendingMs: React.Dispatch<React.SetStateAction<number>>;
+  pendingMs: number;
+  setPendingMinMs: React.Dispatch<React.SetStateAction<number>>;
+  pendingMinMs: number;
 }
 
-export const RouterConfigWidget = (props: RouterConfigWidgetProps) => {
-
-const { setLoaderDelay,loaderDelay, setPendingMs,  pendingMs, setPendingMinMs, pendingMinMs } = props;
+export function RouterConfigWidget(props: RouterConfigWidgetProps) {
+  const {
+    setLoaderDelay,
+    loaderDelay,
+    setPendingMs,
+    pendingMs,
+    setPendingMinMs,
+    pendingMinMs,
+  } = props;
   return (
     <div className="text-xs fixed w-52 shadow-md shadow-black/20 rounded bottom-2 left-2 bg-white bg-opacity-75 border-b flex flex-col gap-1 flex-wrap items-left divide-y divide-gray-500/20">
       <div className="p-2 space-y-2">
         <div className="flex gap-2">
           <button
+            type="button"
             className="bg-blue-500 text-white rounded p-1 px-2"
             onClick={() => {
               setLoaderDelay(150);
@@ -25,6 +32,7 @@ const { setLoaderDelay,loaderDelay, setPendingMs,  pendingMs, setPendingMinMs, p
             Fast
           </button>
           <button
+            type="button"
             className="bg-blue-500 text-white rounded p-1 px-2"
             onClick={() => {
               setLoaderDelay(500);
@@ -33,6 +41,7 @@ const { setLoaderDelay,loaderDelay, setPendingMs,  pendingMs, setPendingMinMs, p
             Fast 3G
           </button>
           <button
+            type="button"
             className="bg-blue-500 text-white rounded p-1 px-2"
             onClick={() => {
               setLoaderDelay(2000);
@@ -57,6 +66,7 @@ const { setLoaderDelay,loaderDelay, setPendingMs,  pendingMs, setPendingMinMs, p
       <div className="p-2 space-y-2">
         <div className="flex gap-2">
           <button
+            type="button"
             className="bg-blue-500 text-white rounded p-1 px-2"
             onClick={() => {
               setPendingMs(1000);
@@ -93,4 +103,4 @@ const { setLoaderDelay,loaderDelay, setPendingMs,  pendingMs, setPendingMinMs, p
       </div>
     </div>
   );
-};
+}

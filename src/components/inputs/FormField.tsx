@@ -1,8 +1,8 @@
 import {
   FieldError,
-  UseFormRegister,
   FieldValues,
   Path,
+  UseFormRegister,
 } from "react-hook-form";
 
 export type ValidFieldNames =
@@ -23,16 +23,15 @@ export type FormFieldProps<FormData extends FieldValues> = {
   valueAsNumber?: boolean;
 };
 
-export const FormField = <FormData extends FieldValues>({
+export function FormField<FormData extends FieldValues>({
   register,
-  label,
-  required,
   type,
   placeholder,
   name,
   valueAsNumber,
   error,
-}: FormFieldProps<FormData>) => (
+}: FormFieldProps<FormData>) {
+  return (
     <>
       <input
         type={type}
@@ -41,4 +40,5 @@ export const FormField = <FormData extends FieldValues>({
       />
       {error && <span className="error-message">{error.message}</span>}
     </>
-);
+  );
+}

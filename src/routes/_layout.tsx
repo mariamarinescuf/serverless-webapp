@@ -1,9 +1,9 @@
-import * as React from 'react'
-import { Link, Outlet, createFileRoute } from '@tanstack/react-router'
+import * as React from "react";
+import { Outlet, createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/_layout' as never)({
+export const Route = createFileRoute("/_layout" as never)({
   component: LayoutComponent,
-})
+});
 
 function LayoutComponent() {
   return (
@@ -12,5 +12,5 @@ function LayoutComponent() {
       <hr />
       <Outlet />
     </div>
-  )
+  );
 }

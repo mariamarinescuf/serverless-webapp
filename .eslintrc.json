@@ -1,57 +1,38 @@
 {
-    "root": true,
-    "noInlineConfig": false,
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "project": "./tsconfig.json",
-        "ecmaVersion": 12,
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "sourceType": "module"
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:import/typescript",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": [
-        "react-app"
-        // "airbnb",
-        // "airbnb/hooks",
-        // "plugin:@typescript-eslint/recommended",
-        // "prettier",
-        // "plugin:prettier/recommended",
-        // "plugin:jest/recommended"
-    ],
-    "plugins": [
-        "react-hooks"
-        // "@typescript-eslint",
-        // "simple-import-sort"
-        // "unused-imports"
-    ],
-    "env": { "browser": true, "jest": true, "node": true, "es6": true },
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
-    "settings": {
-        "react": {
-            "version": "detect"
-        },
-        "import/parsers": {
-            "@typescript-eslint/parser": [".ts", ".tsx", ".d.ts"]
-        },
-        "import/resolver": {
-            "typescript": {},
-            "node": { "extensions": [".ts", ".tsx", ".d.ts"] }
-        },
-        "import/external-module-folders": ["node_modules", "node_modules/@types"]
-    },
-    "rules": {
-        "react/react-in-jsx-scope": "off",
-        "no-use-before-define": "warn",
-        "@typescript-eslint/no-use-before-define": "warn",
-        "import/prefer-default-export": "off",     
-        "import/extensions": [
-            "error",
-            "ignorePackages",
-            { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }
-        ]
-    }
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "rules": {
+    "react/react-in-jsx-scope": ["off"],
+    "react/jsx-uses-react": ["off"],
+    "react/no-unescaped-entities": ["off"],
+    "@typescript-eslint/no-use-before-define": ["off"],
+    "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "no-console": "warn",
+    "prettier": "off",
+    "no-empty": "warn",
+    "@typescript-eslint/no-unused-vars": "warn"
+  }
 }
