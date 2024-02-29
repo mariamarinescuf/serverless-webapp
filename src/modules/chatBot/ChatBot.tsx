@@ -10,7 +10,7 @@ import {
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import { useState } from "react";
 
-const API_KEY = process.env.REACT_APP_OPENAI_SECRET;
+const API_KEY = import.meta.env.VITE_OPENAI_SECRET;
 
 function ChatBot() {
   const [messages, setMessages] = useState<any>([

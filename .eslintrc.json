@@ -27,11 +27,11 @@
     "react/jsx-uses-react": ["off"],
     "react/no-unescaped-entities": ["off"],
     "@typescript-eslint/no-use-before-define": ["off"],
-    "import/prefer-default-export": "off",
-    "react/jsx-props-no-spreading": "off",
-    "react/require-default-props": "off",
+    "import/prefer-default-export": ["off"],
+    "react/jsx-props-no-spreading": ["off"],
+    "react/require-default-props": ["off"],
     "no-console": "warn",
-    "prettier": "off",
+    "prettier": ["off"],
     "no-empty": "warn",
     "@typescript-eslint/no-unused-vars": "warn"
   }
